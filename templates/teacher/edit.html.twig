@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Edit Teacher
+{% endblock %}
+
+{% block body %}
+     <div class="text-center">
+     <h1>Edit Teacher</h1>
+     </div>
+     <div class="gap-2 col-3 mx-auto d-md-block">
+    {{ include('teacher/_form.html.twig', {'button_label': 'Update'}) }}
+     </div>
+     <div class="gap-2 col-1 mx-auto d-md-block px-2">
+    <a class="btn btn-secondary" style="margin:auto; display:block" href="{{ path('app_teacher_index') }}">Back to list</a>
+     </div>
+     <div class =" col-2 mx-auto d-md-block py-1">
+    {{ include('teacher/_delete_form.html.twig') }}
+  </div>
+{% endblock %}

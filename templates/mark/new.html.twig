@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Mark{% endblock %}
+
+{% block body %}
+    <div class="text-center">
+    <h1>Create new Mark</h1>
+    </div>
+     <div class=" col-3 mx-auto d-md-block">
+    {{ include('mark/_form.html.twig') }}
+     </div>
+     <div class =" d-grid gap-2 col-1 mx-auto d-md-block px-1 ">
+    <a class="btn btn-secondary" style="margin:auto; display:block" href="{{ path('app_mark_index') }}">Back to list</a>
+     </div>
+{% endblock %}

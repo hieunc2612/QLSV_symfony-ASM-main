@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Course index{% endblock %}
+
+{% block body %}
+    <div class="table container px-5">
+    <h1>Course Listing</h1>
+    <form action={{ path('app_course_index') }} method="get">
+                    <div>
+                      <div class="input-group">
+                        <input type="string" name="Name" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
+                        <button type="submit" class="btn btn-outline-primary" value="Search" >search</button>
+                      </div>
+                    </div>            
+    </form><br>
+    <table class="table table-striped table-bordered  text-center ">
+        <thead>
+            <tr class="table table-info ">
+                <th>Id</th>
+                <th>CourseName</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for course in courses %}
+            <tr>
+                <td><strong>{{ course.id }}</strong></td>
+                <td>{{ course.CourseName }}</td>
+                <td>
+                    <a class="btn btn-outline-info"   href="{{ path('app_course_show', {'id': course.id}) }}" type="submit">Show</a>
+                    <a class="btn btn-outline-warning"   href="{{ path('app_course_edit', {'id': course.id}) }}" type="submit">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary gap-2 col-2 mx-auto d-md-block"   href="{{ path('app_course_new') }}" type="submit">Create new</a>
+    </div>
+{% endblock %}

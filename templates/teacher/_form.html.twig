@@ -1,0 +1,21 @@
+{{ form_start(form) }}
+    {# {{ form_widget(form) }} #}
+<div class="container">
+    <div class="row">
+        <label>
+            {{ form_label(form.Name, "Name Teacher") }}
+        </label>
+        {{ form_widget(form.Name, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="row">
+        <label>
+            {{ form_label(form.Phone, "Phone") }}
+        </label>
+        {{ form_widget(form.Phone, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>   
+    <div class="d-grid gap-2 col-2 mx-auto d-md-block py-1">
+    <button class="btn btn-success" style="margin:auto; display:block">{{ button_label|default('Save') }}</button>
+    </div>
+
+{{ form_end(form) }}

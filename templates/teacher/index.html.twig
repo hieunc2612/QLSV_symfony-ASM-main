@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Teacher index
+{% endblock %}
+
+{% block body %}
+  <div class="table container px-5">
+    <h1>
+      Teacher Listing
+    </h1>
+    <form action={{ path('app_teacher_index') }} method="get">
+                    <div>
+                      <div class="input-group">
+                        <input type="string" name="Name" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
+                        <button type="submit" class="btn btn-outline-primary" value="Search" >search</button>
+                      </div>
+                    </div>            
+    </form><br>
+    <table class="table table-striped table-bordered text-center">
+      <thead>
+        <tr class="table table-info">
+          <th>Id</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for teacher in teachers %}
+          <tr>
+            <td>
+              <strong>{{ teacher.id }}</strong>
+            </td>
+            <td>
+              {{ teacher.Name }}
+            </td>
+            <td>
+              {{ teacher.Phone }}
+            </td>
+            <td>
+              <a class="btn btn-outline-info"
+                type="submit"
+                href="{{
+                path(
+                  'app_teacher_show',
+                  {
+                    id: teacher.id
+                  }
+                )
+                }}">
+                Show
+              </a>
+              <a class="btn btn-outline-warning" type="submit" href="{{path('app_teacher_edit', {id: teacher.id})}}">Edit</a>
+            </td>
+          </tr>
+        {% else %}
+          <tr>
+            <td colspan="4">
+              no records found
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="container px-5">
+      <a class="btn btn-primary gap-2 col-2 mx-auto d-md-block" type="submit" href="{{ path('app_teacher_new') }}">Create new</a>
+    </div>
+  </div>
+{% endblock %}

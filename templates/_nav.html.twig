@@ -1,0 +1,26 @@
+
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom" style="background-color: #e3f2fd;">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0  text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <h1><p class="text-primary"  >Student Management</p></h1>
+      </a>   
+
+      <ul class="nav nav-pills">
+        <li class="btn btn-outline-light" ><a href="{{ path('app_homepage') }}" class="nav-link">Home</a></li>
+        {% if app.user %}
+            <li class="btn btn-outline-light"><a class="nav-link">Hello {{ app.user.email }}</a></li>
+        {% endif %}
+        <li class="btn btn-outline-light">
+            <a href="/{{ app.user ? 'logout' : 'login' }}" class="nav-link">
+                {{ app.user ? 'Logout' : 'Login' }}
+            </a>
+        </li>
+        <li class="btn btn-outline-light" ><a href="{{ path('app_student_index') }}" class="nav-link">Student</a></li>
+        <li class="btn btn-outline-light"><a href="{{ path('app_teacher_index') }}" class="nav-link">Teacher</a></li>
+        <li class="btn btn-outline-light"><a href="{{ path('app_mark_index') }}" class="nav-link">Mark</a></li>
+        <li class="btn btn-outline-light"><a href="{{ path('app_subject_index') }}" class="nav-link">Subject</a></li>
+        <li class="btn btn-outline-light"><a href="{{ path('app_course_index') }}" class="nav-link">Course</a></li>
+      </ul>
+    </header>
+
+<div 

@@ -1,0 +1,44 @@
+{{ form_start(form) }}
+    {# {{ form_widget(form) }} #}
+<div class="container">
+    <div class="row">
+        <label>
+            {{ form_label(form.Student, "Student Name") }}
+        </label>
+        {{ form_widget(form.Student, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="row">
+        <label>
+            {{ form_label(form.Subject, "Subject") }}
+        </label>
+        {{ form_widget(form.Subject, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="row">
+        <label>
+            {{ form_label(form.ASM1, "ASM1") }}
+        </label>
+        {{ form_widget(form.ASM1, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="row">
+        <label>
+            {{ form_label(form.ASM2, "ASM2") }}
+        </label>
+        {{ form_widget(form.ASM2, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="row">
+        <label>
+            {{ form_label(form.Average, "Average") }}
+        </label>
+        {{ form_widget(form.Average, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="row">
+        <label>
+            {{ form_label(form.Status, "Status") }}
+        </label>
+        {{ form_widget(form.Status, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+    <div class="d-grid gap-2 col-2 mx-auto d-md-block py-1">
+    <button class="btn btn-success" style="margin:auto; display:block">{{ button_label|default('Save') }}</button>
+    </div>
+{{ form_end(form) }}
